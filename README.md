@@ -27,7 +27,7 @@ This package supports drag & drop widgets inside the GridView.builder for multip
 
 
 ### Draggable GridView.
-![Draggable GridView](https://github.com/Mindinventory/image_cropping/blob/master/assets/image_plugin_1.gif)
+![Draggable GridView](https://github.com/Mindinventory/flutter_draggable_gridview/blob/master/assets/draggable_gridview.gif)
 
 
 ## Usage
@@ -52,25 +52,25 @@ This package supports drag & drop widgets inside the GridView.builder for multip
 A delegate that controls the layout of the children within the GridView.
 
 ##### listOfWidgets:
-listOfWidgets is use to show the widgets inside the GridView.builder to provide the drag & drop functionality.
+This property contains list of widgets and it is use to show the widget inside the GridView.builder to provide the drag & drop functionality.
 
 ##### dragCompletion:
-this property contains DragCompletion implementation. You have to override and store updated list (if needed).
+This property contains DragCompletion implementation. You have to override and store updated list (if needed).
 
 
 ## Optional parameters
 
 ##### isOnlyLongPress:
-this property contains boolean value. If this property is false then it works with simple press draggable or else it works with long press. default value is 'true'. 
+This property contains ```bool``` value. If this property is ```false``` then it works with simple press draggable or else it works with long press. default value is 'true'. 
 
 ##### dragFeedback:
-this property contains DragFeedback implementation. If this property overrides then you have to return a Widget and we will use this widget in feedback. Learn more about feedback from [Draggable](https://api.flutter.dev/flutter/widgets/Draggable-class.html#:~:text=Draggable%20class%20Null%20safety,user's%20finger%20across%20the%20screen) class. 
+This property contains DragFeedback implementation. If this property overrides then you have to return a Widget and we will use this widget in feedback. Learn more about feedback from [Draggable](https://api.flutter.dev/flutter/widgets/Draggable-class.html#:~:text=Draggable%20class%20Null%20safety,user's%20finger%20across%20the%20screen) class. 
 
 ##### dragPlaceHolder:
-this property contains DragPlaceHolder implementation. If this property overrides then you have to return a PlaceHolderWidget and we will use this widget in place holder. 
+This property contains DragPlaceHolder implementation. If this property overrides then you have to return a PlaceHolderWidget and we will use this widget in place holder. 
 
 ##### dragChildWhenDragging:
-this property contains DragChildWhenDragging implementation. If this property overrides then you have to return a Widget and we will display this widget instead of child when drags are under way. Learn more about childWhenDragging from [Draggable](https://api.flutter.dev/flutter/widgets/Draggable-class.html#:~:text=Draggable%20class%20Null%20safety,user's%20finger%20across%20the%20screen) class.
+This property contains DragChildWhenDragging implementation. If this property overrides then you have to return a Widget and we will display this widget instead of child when drags are under way. Learn more about childWhenDragging from [Draggable](https://api.flutter.dev/flutter/widgets/Draggable-class.html#:~:text=Draggable%20class%20Null%20safety,user's%20finger%20across%20the%20screen) class.
 
 
 ### Last but not least :heart_eyes: 
