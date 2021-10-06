@@ -73,7 +73,8 @@ this property contains DragPlaceHolder implementation. If this property override
 this property contains DragChildWhenDragging implementation. If this property overrides then you have to return a Widget and we will display this widget instead of child when drags are under way. Learn more about childWhenDragging from [Draggable](https://api.flutter.dev/flutter/widgets/Draggable-class.html#:~:text=Draggable%20class%20Null%20safety,user's%20finger%20across%20the%20screen) class.
 
 
-### Last but not least :heart_eyes: you can use all the ```GridView.builder``` properties with ```DraggableGridViewBuilder``` class.
+### Last but not least :heart_eyes: 
+#### You can use all the ```GridView.builder``` properties with ```DraggableGridViewBuilder``` class.
 
 
 ## Note:
