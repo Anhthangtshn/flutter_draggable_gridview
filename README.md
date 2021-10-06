@@ -58,7 +58,7 @@ This property contains list of widgets and it is use to show the widget inside t
 This property contains DragCompletion implementation. You have to override and store updated list (if needed).
 
 
-## Optional parameters
+### Optional parameters
 
 ##### isOnlyLongPress:
 This property contains ```bool``` value. If this property is ```false``` then it works with simple press draggable or else it works with long press. default value is 'true'. 
