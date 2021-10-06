@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_draggable_gridview/draggable_grid_view/flutter_draggable_gridview.dart';
+import 'package:flutter_draggable_gridview/flutter_draggable_gridview.dart';
 
 void main() {
   runApp(MyApp());

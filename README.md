@@ -27,7 +27,7 @@ This package supports drag & drop widgets inside the GridView.builder for multip
 
 
 ### Draggable GridView.
-![Draggable GridView](https://github.com/Mindinventory/flutter_draggable_gridview/blob/master/assets/draggable_gridview.gif)
+![Draggable GridView](https://github.com/Mindinventory/flutter_draggable_gridview/blob/main/assets/draggable_gridview.gif)
 
 
 ## Usage
