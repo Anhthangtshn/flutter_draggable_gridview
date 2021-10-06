@@ -6,6 +6,7 @@ class DragTargetGrid extends StatefulWidget {
   final Widget? feedback;
   final Widget? childWhenDragging;
   final PlaceHolderWidget? placeHolder;
+  final DragCompletion dragCompletion;
 
   const DragTargetGrid({
     Key? key,
@@ -14,6 +15,7 @@ class DragTargetGrid extends StatefulWidget {
     this.feedback,
     this.childWhenDragging,
     this.placeHolder,
+    required this.dragCompletion,
   }) : super(key: key);
 
   @override
@@ -25,15 +27,16 @@ class _DragTargetGridState extends State<DragTargetGrid> {
   Widget build(BuildContext context) {
     return DragTarget(
       onAccept: (data) => setState(() {
-        list.removeAt(widget.index);
-        list.insert(
+        _list.removeAt(widget.index);
+        _list.insert(
           widget.index,
-          orgList[draggedIndex],
+          _orgList[_draggedIndex],
         );
-        orgList = [...list];
-        dragStarted = false;
-        draggedIndex = -1;
+        _orgList = [..._list];
+        _dragStarted = false;
+        _draggedIndex = -1;
         widget.voidCallback();
+        widget.dragCompletion.onDragAccept(_orgList);
       }),
       onWillAccept: (details) {
         return true;
@@ -51,7 +54,7 @@ class _DragTargetGridState extends State<DragTargetGrid> {
         List<dynamic> rejected,
       ) {
         /// [isOnlyLongPress] is true then set the 'LongPressDraggableGridView' class or else set 'PressDraggableGridView' class.
-        return (isOnlyLongPress)
+        return (_isOnlyLongPress)
             ? LongPressDraggableGridView(
                 index: widget.index,
                 feedback: widget.feedback,
@@ -67,38 +70,38 @@ class _DragTargetGridState extends State<DragTargetGrid> {
   }
 
   void setDragStartedData(DragTargetDetails details, int index) {
-    if (dragStarted) {
-      dragStarted = false;
-      draggedIndexRemoved = false;
-      draggedIndex = details.data;
+    if (_dragStarted) {
+      _dragStarted = false;
+      _draggedIndexRemoved = false;
+      _draggedIndex = details.data;
       _draggedChild = EmptyItem();
-      lastIndex = draggedIndex;
+      _lastIndex = _draggedIndex;
     }
   }
 
   void checkIndexesAreSame(DragTargetDetails details, int index) {
-    if (draggedIndex != -1 && index != lastIndex) {
-      list.removeWhere((element) {
+    if (_draggedIndex != -1 && index != _lastIndex) {
+      _list.removeWhere((element) {
         return (widget.placeHolder!=null) ? element is PlaceHolderWidget : element is EmptyItem;
       });
-      lastIndex = index;
+      _lastIndex = index;
 
-      if (draggedIndex > lastIndex) {
-        _draggedChild = orgList[draggedIndex - 1];
+      if (_draggedIndex > _lastIndex) {
+        _draggedChild = _orgList[_draggedIndex - 1];
       } else {
-        _draggedChild = orgList[(draggedIndex + 1 >= list.length)
-            ? draggedIndex
-            : draggedIndex + 1];
+        _draggedChild = _orgList[(_draggedIndex + 1 >= _list.length)
+            ? _draggedIndex
+            : _draggedIndex + 1];
       }
-      if (draggedIndex == lastIndex) {
+      if (_draggedIndex == _lastIndex) {
         _draggedChild = widget.placeHolder ?? EmptyItem();
       }
-      if (!draggedIndexRemoved) {
-        draggedIndexRemoved = true;
-        list.removeAt(draggedIndex);
+      if (!_draggedIndexRemoved) {
+        _draggedIndexRemoved = true;
+        _list.removeAt(_draggedIndex);
       }
-      list.insert(
-        lastIndex,
+      _list.insert(
+        _lastIndex,
         widget.placeHolder ?? EmptyItem(),
       );
     }

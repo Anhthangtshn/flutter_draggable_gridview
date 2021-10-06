@@ -12,19 +12,19 @@ class PressDraggableGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Draggable(
       onDragStarted: () {
-        if (dragEnded) {
-          dragStarted = true;
-          dragEnded = false;
+        if (_dragEnded) {
+          _dragStarted = true;
+          _dragEnded = false;
         }
       },
       onDragEnd: (details) {
-        dragEnded = true;
-        dragStarted = false;
+        _dragEnded = true;
+        _dragStarted = false;
       },
       data: index,
-      feedback: feedback ?? list[index],
-      child: list[index],
-      childWhenDragging: (childWhenDragging!=null) ? childWhenDragging : (_draggedChild != null) ? _draggedChild : list[index],
+      feedback: feedback ?? _list[index],
+      child: _list[index],
+      childWhenDragging: (childWhenDragging!=null) ? childWhenDragging : (_draggedChild != null) ? _draggedChild : _list[index],
     );
   }
 }
