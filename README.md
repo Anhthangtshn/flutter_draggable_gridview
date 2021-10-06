@@ -54,7 +54,7 @@ A delegate that controls the layout of the children within the GridView.
 ##### listOfWidgets:
 listOfWidgets is use to show the widgets inside the GridView.builder to provide the drag & drop functionality.
 
-##### _dragCompletion:
+##### dragCompletion:
 this property contains DragCompletion implementation. You have to override and store updated list (if needed).
 
 
@@ -70,9 +70,10 @@ this property contains DragFeedback implementation. If this property overrides t
 this property contains DragPlaceHolder implementation. If this property overrides then you have to return a PlaceHolderWidget and we will use this widget in place holder. 
 
 ##### dragChildWhenDragging:
-this property contains DragChildWhenDragging implementation. If this property overrides then you have to return a Widget and we will display this widget instead of child when drags are under way.
+this property contains DragChildWhenDragging implementation. If this property overrides then you have to return a Widget and we will display this widget instead of child when drags are under way. Learn more about childWhenDragging from [Draggable](https://api.flutter.dev/flutter/widgets/Draggable-class.html#:~:text=Draggable%20class%20Null%20safety,user's%20finger%20across%20the%20screen) class.
 
-### Last but not least you can use all the [GridView.builder] properties :heart_eyes:
+
+### Last but not least :heart_eyes: you can use all the GridView.builder properties
 
 
 ## Note:
