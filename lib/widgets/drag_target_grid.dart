@@ -23,21 +23,17 @@ class DragTargetGrid extends StatefulWidget {
 }
 
 class _DragTargetGridState extends State<DragTargetGrid> {
+
+
   @override
   Widget build(BuildContext context) {
     return DragTarget(
       onAccept: (data) => setState(() {
-        _list.removeAt(widget.index);
-        _list.insert(
-          widget.index,
-          _orgList[_draggedIndex],
-        );
-        _orgList = [..._list];
-        _dragStarted = false;
-        _draggedIndex = -1;
-        widget.voidCallback();
-        widget.dragCompletion.onDragAccept(_orgList);
+        onDragComplete(widget.index);
       }),
+      onLeave: (details) {
+        // print('onLeave: $details');
+      },
       onWillAccept: (details) {
         return true;
       },
@@ -64,6 +60,9 @@ class _DragTargetGridState extends State<DragTargetGrid> {
                 index: widget.index,
                 feedback: widget.feedback,
                 childWhenDragging: widget.childWhenDragging,
+                onDragCancelled: () {
+                  onDragComplete(_lastIndex);
+                },
               );
       },
     );
@@ -82,7 +81,9 @@ class _DragTargetGridState extends State<DragTargetGrid> {
   void checkIndexesAreSame(DragTargetDetails details, int index) {
     if (_draggedIndex != -1 && index != _lastIndex) {
       _list.removeWhere((element) {
-        return (widget.placeHolder!=null) ? element is PlaceHolderWidget : element is EmptyItem;
+        return (widget.placeHolder != null)
+            ? element is PlaceHolderWidget
+            : element is EmptyItem;
       });
       _lastIndex = index;
 
@@ -105,6 +106,20 @@ class _DragTargetGridState extends State<DragTargetGrid> {
         widget.placeHolder ?? EmptyItem(),
       );
     }
+  }
+
+
+  void onDragComplete(int index){
+    _list.removeAt(index);
+    _list.insert(
+      index,
+      _orgList[_draggedIndex],
+    );
+    _orgList = [..._list];
+    _dragStarted = false;
+    _draggedIndex = -1;
+    widget.voidCallback();
+    widget.dragCompletion.onDragAccept(_orgList);
   }
 
 }

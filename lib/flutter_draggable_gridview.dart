@@ -13,8 +13,6 @@ part 'abstracts/drag_feedback.dart';
 part 'abstracts/drag_place_holder.dart';
 part 'abstracts/drag_completion.dart';
 
-
-
 var _dragStarted = false;
 var _dragEnded = true;
 late List<Widget> _orgList;
@@ -23,25 +21,31 @@ Widget? _draggedChild;
 int _draggedIndex = -1;
 int _lastIndex = -1;
 bool _draggedIndexRemoved = false;
+
 /// [isOnlyLongPress] is Accepts 'true' and 'false'
 /// If, it is true then only draggable works with long press.
 /// and if it is false then it works with simple press.
 bool _isOnlyLongPress = true;
 
 class DraggableGridViewBuilder extends StatefulWidget {
-
   // [listOfWidgets] will show the widgets in Gridview.builder.
   final List<Widget> listOfWidgets;
+
   /// [isOnlyLongPress] is Accepts 'true' and 'false'
   final bool isOnlyLongPress;
+
   /// [dragFeedback] you can set this to display the widget when the widget is being dragged.
   final DragFeedback? dragFeedback;
+
   /// [dragChildWhenDragging] you can set this to display the widget at dragged widget original place when the widget is being dragged.
   final DragChildWhenDragging? dragChildWhenDragging;
+
   /// [dragPlaceHolder] you can set this to display the widget at the drag target when the widget is being dragged.
   final DragPlaceHolder? dragPlaceHolder;
+
   /// [dragCompletion] you have to set this callback to get the updated list.
   final DragCompletion dragCompletion;
+
   /// all the below arguments for Gridview.builder.
   final Axis scrollDirection;
   final bool reverse;
@@ -99,8 +103,11 @@ class _DraggableGridViewBuilderState extends State<DraggableGridViewBuilder> {
   @override
   void initState() {
     super.initState();
+    assert(widget.listOfWidgets.isNotEmpty);
+
     /// [list] will update when the widget is beign dragged.
     _list = [...widget.listOfWidgets];
+
     /// [orgList] will set when the drag completes.
     _orgList = [...widget.listOfWidgets];
     _isOnlyLongPress = widget.isOnlyLongPress;
@@ -132,7 +139,8 @@ class _DraggableGridViewBuilderState extends State<DraggableGridViewBuilder> {
             setState(() {});
           },
           feedback: widget.dragFeedback?.feedback(_orgList, index),
-          childWhenDragging: widget.dragChildWhenDragging?.dragChildWhenDragging(_orgList, index),
+          childWhenDragging: widget.dragChildWhenDragging
+              ?.dragChildWhenDragging(_orgList, index),
           placeHolder: widget.dragPlaceHolder?.placeHolder(_orgList, index),
           dragCompletion: widget.dragCompletion,
         );

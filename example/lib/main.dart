@@ -92,7 +92,6 @@ class MyHomePageState extends State<MyHomePage>
 
   @override
   void onDragAccept(List<Widget> list) {
-    print(list);
+    // print(list);
   }
-
 }
