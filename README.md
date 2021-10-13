@@ -1,8 +1,12 @@
 # flutter_draggable_gridview
 
 
-<a href="https://pub.dev/packages/image_cropping"><img src="https://img.shields.io/pub/v/image_cropping.svg?label=image_cropping" alt="image_cropping version"></a>
-<a href="https://github.com/Mindinventory/flutter_draggable_gridview"><img src="https://img.shields.io/github/stars/Mindinventory/image_cropping?style=social" alt="MIT License"></a>
+<a href="https://pub.dev/packages/image_cropping">
+<img src="https://img.shields.io/pub/v/image_cropping.svg?label=image_cropping" alt="flutter_draggable_gridview version">
+</a>
+<a href="https://github.com/Mindinventory/flutter_draggable_gridview">
+<img src="https://img.shields.io/github/stars/Mindinventory/flutter_draggable_gridview?style=social" alt="flutter_draggable_gridview Git Stars">
+</a>
 <a href="https://developer.android.com" style="pointer-events: stroke;" target="_blank">
 <img src="https://img.shields.io/badge/platform-android-blue">
 </a>
@@ -41,9 +45,9 @@ This package supports drag & drop widgets inside the GridView.builder for multip
         ),
         listOfWidgets: listOfWidgets,
         dragCompletion: this,
-        isOnlyLongPress: false,
         dragFeedback: this,
         dragPlaceHolder: this,
+        isOnlyLongPress: false,
       );
 
 ### Required parameters
