@@ -12,22 +12,10 @@ part 'abstracts/drag_child_when_dragging.dart';
 part 'abstracts/drag_feedback.dart';
 part 'abstracts/drag_place_holder.dart';
 part 'abstracts/drag_completion.dart';
-
-var _dragStarted = false;
-var _dragEnded = true;
-late List<Widget> _orgList;
-late List<Widget> _list;
-Widget? _draggedChild;
-int _draggedIndex = -1;
-int _lastIndex = -1;
-bool _draggedIndexRemoved = false;
-
-/// [isOnlyLongPress] is Accepts 'true' and 'false'
-/// If, it is true then only draggable works with long press.
-/// and if it is false then it works with simple press.
-bool _isOnlyLongPress = true;
+part 'common/global_variables.dart';
 
 class DraggableGridViewBuilder extends StatefulWidget {
+
   // [listOfWidgets] will show the widgets in Gridview.builder.
   final List<Widget> listOfWidgets;
 

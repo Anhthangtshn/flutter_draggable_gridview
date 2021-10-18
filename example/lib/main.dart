@@ -37,7 +37,8 @@ class MyHomePageState extends State<MyHomePage>
     listOfImages.length,
     (index) => Container(
       padding: EdgeInsets.only(
-        left: 8.0,
+        left: 4.0,
+        right: 4.0,
         top: 8.0,
       ),
       child: Image.asset(

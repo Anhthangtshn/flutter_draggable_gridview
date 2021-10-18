@@ -1,9 +1,6 @@
 # flutter_draggable_gridview
 
 
-<a href="https://pub.dev/packages/image_cropping">
-<img src="https://img.shields.io/pub/v/image_cropping.svg?label=image_cropping" alt="flutter_draggable_gridview version">
-</a>
 <a href="https://github.com/Mindinventory/flutter_draggable_gridview/stargazers">
 <img src="https://img.shields.io/github/stars/Mindinventory/flutter_draggable_gridview?style=social" alt="flutter_draggable_gridview Git Stars">
 </a>
