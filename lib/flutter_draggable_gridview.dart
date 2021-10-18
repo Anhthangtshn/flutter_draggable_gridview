@@ -15,7 +15,6 @@ part 'abstracts/drag_completion.dart';
 part 'common/global_variables.dart';
 
 class DraggableGridViewBuilder extends StatefulWidget {
-
   // [listOfWidgets] will show the widgets in Gridview.builder.
   final List<Widget> listOfWidgets;
 

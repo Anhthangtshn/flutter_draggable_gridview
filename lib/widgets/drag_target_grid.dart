@@ -23,8 +23,6 @@ class DragTargetGrid extends StatefulWidget {
 }
 
 class _DragTargetGridState extends State<DragTargetGrid> {
-
-
   @override
   Widget build(BuildContext context) {
     return DragTarget(
@@ -108,8 +106,7 @@ class _DragTargetGridState extends State<DragTargetGrid> {
     }
   }
 
-
-  void onDragComplete(int index){
+  void onDragComplete(int index) {
     _list.removeAt(index);
     _list.insert(
       index,
@@ -121,5 +118,4 @@ class _DragTargetGridState extends State<DragTargetGrid> {
     widget.voidCallback();
     widget.dragCompletion.onDragAccept(_orgList);
   }
-
 }
