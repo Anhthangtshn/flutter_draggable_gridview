@@ -2,15 +2,15 @@ part of draggable_grid_view;
 
 class LongPressDraggableGridView extends StatelessWidget {
   final int index;
-  final Widget? feedback;
-  final Widget? childWhenDragging;
+  final Widget feedback;
+  final Widget childWhenDragging;
   const LongPressDraggableGridView(
-      {Key? key, required this.index, this.feedback, this.childWhenDragging})
+      {Key key, this.index, this.feedback, this.childWhenDragging})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return LongPressDraggable(
+    return LongPressDraggable<int>(
       onDragStarted: () {
         if (_dragEnded) {
           _dragStarted = true;

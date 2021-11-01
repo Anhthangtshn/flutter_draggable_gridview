@@ -1,17 +1,29 @@
 library draggable_grid_view;
 
+import 'dart:core';
+import 'dart:core';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 part 'widgets/drag_target_grid.dart';
+
 part 'widgets/long_press_draggable_grid.dart';
+
 part 'widgets/press_draggable_grid.dart';
+
 part 'widgets/empty_item.dart';
+
 part 'widgets/placeholder_widget.dart';
+
 part 'abstracts/drag_child_when_dragging.dart';
+
 part 'abstracts/drag_feedback.dart';
+
 part 'abstracts/drag_place_holder.dart';
+
 part 'abstracts/drag_completion.dart';
+
 part 'common/global_variables.dart';
 
 class DraggableGridViewBuilder extends StatefulWidget {
@@ -22,13 +34,13 @@ class DraggableGridViewBuilder extends StatefulWidget {
   final bool isOnlyLongPress;
 
   /// [dragFeedback] you can set this to display the widget when the widget is being dragged.
-  final DragFeedback? dragFeedback;
+  final DragFeedback dragFeedback;
 
   /// [dragChildWhenDragging] you can set this to display the widget at dragged widget original place when the widget is being dragged.
-  final DragChildWhenDragging? dragChildWhenDragging;
+  final DragChildWhenDragging dragChildWhenDragging;
 
   /// [dragPlaceHolder] you can set this to display the widget at the drag target when the widget is being dragged.
-  final DragPlaceHolder? dragPlaceHolder;
+  final DragPlaceHolder dragPlaceHolder;
 
   /// [dragCompletion] you have to set this callback to get the updated list.
   final DragCompletion dragCompletion;
@@ -36,27 +48,27 @@ class DraggableGridViewBuilder extends StatefulWidget {
   /// all the below arguments for Gridview.builder.
   final Axis scrollDirection;
   final bool reverse;
-  final ScrollController? controller;
-  final bool? primary;
-  final ScrollPhysics? physics;
+  final ScrollController controller;
+  final bool primary;
+  final ScrollPhysics physics;
   final bool shrinkWrap;
-  final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry padding;
   final SliverGridDelegate gridDelegate;
   final bool addAutomaticKeepAlives;
   final bool addRepaintBoundaries;
   final bool addSemanticIndexes;
-  final double? cacheExtent;
-  final int? semanticChildCount;
+  final double cacheExtent;
+  final int semanticChildCount;
   final DragStartBehavior dragStartBehavior;
   final ScrollViewKeyboardDismissBehavior keyboardDismissBehavior;
-  final String? restorationId;
+  final String restorationId;
   final Clip clipBehavior;
 
   const DraggableGridViewBuilder({
-    Key? key,
-    required this.gridDelegate,
-    required this.listOfWidgets,
-    required this.dragCompletion,
+    Key key,
+    this.gridDelegate,
+    this.listOfWidgets,
+    this.dragCompletion,
     this.isOnlyLongPress = true,
     this.dragFeedback,
     this.dragChildWhenDragging,
@@ -82,8 +94,7 @@ class DraggableGridViewBuilder extends StatefulWidget {
         );
 
   @override
-  _DraggableGridViewBuilderState createState() =>
-      _DraggableGridViewBuilderState();
+  _DraggableGridViewBuilderState createState() => _DraggableGridViewBuilderState();
 }
 
 class _DraggableGridViewBuilderState extends State<DraggableGridViewBuilder> {
@@ -126,8 +137,7 @@ class _DraggableGridViewBuilderState extends State<DraggableGridViewBuilder> {
             setState(() {});
           },
           feedback: widget.dragFeedback?.feedback(_orgList, index),
-          childWhenDragging: widget.dragChildWhenDragging
-              ?.dragChildWhenDragging(_orgList, index),
+          childWhenDragging: widget.dragChildWhenDragging?.dragChildWhenDragging(_orgList, index),
           placeHolder: widget.dragPlaceHolder?.placeHolder(_orgList, index),
           dragCompletion: widget.dragCompletion,
         );

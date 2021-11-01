@@ -2,16 +2,16 @@ part of draggable_grid_view;
 
 class PressDraggableGridView extends StatelessWidget {
   final int index;
-  final Widget? feedback;
-  final Widget? childWhenDragging;
+  final Widget feedback;
+  final Widget childWhenDragging;
   final VoidCallback onDragCancelled;
 
   const PressDraggableGridView({
-    Key? key,
-    required this.index,
+    Key key,
+    this.index,
     this.feedback,
     this.childWhenDragging,
-    required this.onDragCancelled,
+    this.onDragCancelled,
   }) : super(key: key);
 
   @override

@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
+  MyHomePage({Key key, this.title}) : super(key: key);
 
   final String title;
 
@@ -51,12 +51,6 @@ class MyHomePageState extends State<MyHomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          widget.title,
-        ),
-      ),
       body: DraggableGridViewBuilder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
@@ -65,7 +59,7 @@ class MyHomePageState extends State<MyHomePage>
         ),
         listOfWidgets: listOfWidgets,
         dragCompletion: this,
-        isOnlyLongPress: false,
+        isOnlyLongPress: true,
         dragFeedback: this,
         dragPlaceHolder: this,
       ),
